@@ -1,7 +1,7 @@
 return {
   {
     "uloco/bluloco.nvim",
-    lazy = true,
+    lazy = false,
     priority = 1000,
     dependencies = { "rktjmp/lush.nvim" },
     config = function()
@@ -19,13 +19,13 @@ return {
 
   {
     "cpea2506/one_monokai.nvim",
-    lazy = true,
+    lazy = false,
     priority = 1000,
   },
 
   {
     "Yazeed1s/oh-lucy.nvim",
-    lazy = true,
+    lazy = false,
     priority = 1000,
   },
 

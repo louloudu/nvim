@@ -18,3 +18,4 @@ vim.o.linebreak = true -- Force line breaks to occur only at appropriate places
 -- if vim.fn.has("win32") or vim.fn.has("win64") then
 --   LazyVim.terminal.setup("powershell")
 -- end
+
