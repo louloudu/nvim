@@ -15,10 +15,10 @@ vim.o.breakindent = true -- Make the wrapped text follow indentation rules
 vim.o.linebreak = true -- Force line breaks to occur only at appropriate places
 
 -- Set the default terminal to PowerShell in Windows
-if vim.fn.has("win32") or vim.fn.has("win64") then
+if vim.fn.has("win32") == 1 then
   LazyVim.terminal.setup("powershell")
+  -- Fixing some plugins may cause error messages when starting PowerShell
+  vim.o.shellcmdflag =
+    "-NoLogo -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new();$PSDefaultParameterValues['Out-File:Encoding']='utf8';"
+  vim.o.shellpipe = '2>&1 | %%{ "$_" } | Tee-Object %s; exit $LastExitCode'
 end
--- Fixing some plugins may cause error messages when starting PowerShell
-vim.o.shellcmdflag =
-  "-NoLogo -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new();$PSDefaultParameterValues['Out-File:Encoding']='utf8';"
-vim.o.shellpipe = '2>&1 | %%{ "$_" } | Tee-Object %s; exit $LastExitCode'
