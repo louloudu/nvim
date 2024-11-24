@@ -11,14 +11,12 @@ return {
 
   -- Use live_grep_args for the "g" key function in the dashboard interface
   {
-    "nvimdev/dashboard-nvim",
+    "folke/snacks.nvim",
     opts = function(_, opts)
-      -- Find the 'g' key mapping in the center section and update it
-      for _, button in ipairs(opts.config.center) do
-        if button.key == "g" then
-          button.action = function()
-            require("telescope").extensions.live_grep_args.live_grep_args()
-          end
+      for _, key in ipairs(opts.dashboard.preset.keys) do
+        if key.key == "g" then
+          key.action = ":lua require('telescope').extensions.live_grep_args.live_grep_args()"
+          break
         end
       end
     end,
