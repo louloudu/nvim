@@ -44,8 +44,18 @@ vim.keymap.set("v", "<S-Down>", ":t'><CR>gv", { silent = true })
 vim.keymap.set("n", "[p", "O<Esc>p", { desc = "Paste above" })
 vim.keymap.set("n", "]p", "o<Esc>p", { desc = "Paste below" })
 
--- Disable arrow keys
+-- Disable global arrow keys
 vim.keymap.set({ "n", "i", "v" }, "<Up>", "<Nop>")
 vim.keymap.set({ "n", "i", "v" }, "<Left>", "<Nop>")
 vim.keymap.set({ "n", "i", "v" }, "<Right>", "<Nop>")
 vim.keymap.set({ "n", "i", "v" }, "<Down>", "<Nop>")
+-- Enable arrow keys in the buffer for the telescope.nvim plugin
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "TelescopePrompt",
+  callback = function()
+    vim.keymap.set("i", "<Left>", "<Left>", { buffer = true })
+    vim.keymap.set("i", "<Right>", "<Right>", { buffer = true })
+    vim.keymap.set("i", "<Up>", "<Up>", { buffer = true })
+    vim.keymap.set("i", "<Down>", "<Down>", { buffer = true })
+  end,
+})
