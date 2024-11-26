@@ -43,3 +43,9 @@ vim.keymap.set("v", "<S-Down>", ":t'><CR>gv", { silent = true })
 -- Paste text on a new line above or below the current line
 vim.keymap.set("n", "[p", "O<Esc>p", { desc = "Paste above" })
 vim.keymap.set("n", "]p", "o<Esc>p", { desc = "Paste below" })
+
+-- Disable arrow keys
+vim.keymap.set({ "n", "i", "v" }, "<Up>", "<Nop>")
+vim.keymap.set({ "n", "i", "v" }, "<Left>", "<Nop>")
+vim.keymap.set({ "n", "i", "v" }, "<Right>", "<Nop>")
+vim.keymap.set({ "n", "i", "v" }, "<Down>", "<Nop>")
