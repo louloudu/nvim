@@ -1,5 +1,20 @@
 return {
 
+  -- C/C++ LSP
+  -- Modify the C/C++ code style
+  {
+    "neovim/nvim-lspconfig",
+    opts = function(_, opts)
+      if opts.servers.clangd.cmd then
+        for i, cmd in ipairs(opts.servers.clangd.cmd) do
+          if cmd == "--fallback-style=llvm" then
+            opts.servers.clangd.cmd[i] = "--fallback-style=Microsoft"
+          end
+        end
+      end
+    end,
+  },
+
   -- C/C++ DAP
   -- Turn off the default codelldb, use cppdbg (vscode-cpptools), and keep the menu clean
   {
@@ -64,11 +79,5 @@ return {
         end
       end
     end,
-  },
-
-  -- Bash DAP
-  {
-    "williamboman/mason.nvim",
-    opts = { ensure_installed = { "bash-debug-adapter" } },
   },
 }
