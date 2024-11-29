@@ -1,5 +1,6 @@
 return {
 
+  -- C/C++ DAP
   -- Turn off the default codelldb, use cppdbg (vscode-cpptools), and keep the menu clean
   {
     -- Regarding the default configuration of "mason-nvim-dap.nvim"
@@ -40,8 +41,14 @@ return {
     dependencies = {
       -- Ensure C/C++ debugger is installed
       "williamboman/mason.nvim",
-      optional = true,
-      opts = { ensure_installed = { "cpptools" } },
+      opts = function(_, opts)
+        -- Install cpptools
+        opts.ensure_installed = { "cpptools" }
+        -- Exclude codelldb
+        opts.ensure_installed = vim.tbl_filter(function(tool)
+          return tool ~= "codelldb"
+        end, opts.ensure_installed)
+      end,
     },
 
     opts = function()
@@ -57,5 +64,11 @@ return {
         end
       end
     end,
+  },
+
+  -- Bash DAP
+  {
+    "williamboman/mason.nvim",
+    opts = { ensure_installed = { "bash-debug-adapter" } },
   },
 }

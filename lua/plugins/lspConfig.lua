@@ -1,5 +1,6 @@
 return {
 
+  -- C/C++ LSP
   -- Modify the C/C++ code style
   {
     "neovim/nvim-lspconfig",
@@ -12,5 +13,29 @@ return {
         end
       end
     end,
+  },
+
+  -- Bash LSP
+  {
+    "williamboman/mason.nvim",
+    opts = { ensure_installed = { "bash-language-server", "shellcheck" } },
+  },
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        bashls = {
+          cmd = { "bash-language-server", "start" },
+          filetypes = { "sh", "bash" },
+          root_dir = require("lspconfig").util.find_git_ancestor,
+          settings = {
+            bashIde = {
+              globPattern = "*@(.sh|.inc|.bash|.command)",
+            },
+          },
+          single_file_support = true,
+        },
+      },
+    },
   },
 }
