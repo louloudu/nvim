@@ -53,8 +53,13 @@ vim.keymap.set({ "n", "i", "v" }, "<Down>", "<Nop>")
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "TelescopePrompt",
   callback = function()
-    vim.keymap.set("i", "<Left>", "<Left>", { buffer = true })
-    vim.keymap.set("i", "<Right>", "<Right>", { buffer = true })
+    vim.keymap.set({ "n", "i" }, "<Left>", "<Left>", { buffer = true })
+    vim.keymap.set({ "n", "i" }, "<Right>", "<Right>", { buffer = true })
+  end,
+})
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "TelescopeFindPre",
+  callback = function()
     vim.keymap.set("i", "<Up>", "<Up>", { buffer = true })
     vim.keymap.set("i", "<Down>", "<Down>", { buffer = true })
   end,
