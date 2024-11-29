@@ -30,21 +30,9 @@ return {
   },
 
   {
-    "cpea2506/one_monokai.nvim",
-    lazy = false,
-    priority = 1000,
-  },
-
-  {
-    "Yazeed1s/oh-lucy.nvim",
-    lazy = false,
-    priority = 1000,
-  },
-
-  {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "adwaita",
+      colorscheme = "bluloco",
     },
   },
 }
