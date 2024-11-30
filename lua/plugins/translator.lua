@@ -9,7 +9,7 @@ return {
   },
   config = function()
     -- Set global variables
-    vim.g.translator_default_engines = { "bing", "google", "haici" }
+    vim.g.translator_default_engines = { "bing" }
     vim.g.translator_window_type = "popup"
     vim.g.translator_target_lang = "zh"
     vim.g.translator_source_lang = "auto"
