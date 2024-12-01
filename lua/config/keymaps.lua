@@ -20,9 +20,15 @@ vim.keymap.set("n", "<C-q>", ":wqa<CR>", { silent = true })
 -- Return to the "Terminal NORMAL Mode"
 vim.keymap.set("t", "<A-q>", "<C-\\><C-n>")
 
+-- Move one character forward/backward
+vim.keymap.set("i", "<A-h>", "<ESC>i")
+vim.keymap.set("i", "<A-l>", "<ESC>la")
+
 -- Jump to the besinning/end of the line
-vim.keymap.set({ "n", "v", "i" }, "<A-,>", "<Home>")
-vim.keymap.set({ "n", "v", "i" }, "<A-.>", "<End>")
+vim.keymap.set({ "n", "v" }, "<A-S-h>", "^")
+vim.keymap.set({ "n", "v" }, "<A-S-l>", "$")
+vim.keymap.set("i", "<A-S-h>", "<ESC>I")
+vim.keymap.set("i", "<A-S-l>", "<ESC>A")
 
 -- Alt+Up/Down move the current line up/down
 vim.keymap.set({ "n", "v" }, "<M-Up>", ":m .-2<CR>==", { silent = true })
