@@ -44,3 +44,6 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 -- Cursor animation
 vim.g.neovide_cursor_vfx_mode = "pixiedust"
 vim.g.neovide_cursor_vfx_particle_density = 200
+
+-- Jump to the home directory
+vim.cmd('autocmd VimEnter * cd ~')
