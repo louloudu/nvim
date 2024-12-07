@@ -29,6 +29,8 @@ return {
               name = "GDB: Launch",
               type = "cppdbg",
               request = "launch",
+              MIMode = "gdb",
+              miDebuggerPath = vim.fn.exepath("gdb"),
               program = function()
                 local separator = package.config:sub(1, 1) == "\\" and "\\" or "/"
                 return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. separator, "file")
@@ -56,14 +58,7 @@ return {
     dependencies = {
       -- Ensure C/C++ debugger is installed
       "williamboman/mason.nvim",
-      opts = function(_, opts)
-        -- Install cpptools
-        opts.ensure_installed = { "cpptools" }
-        -- Exclude codelldb
-        opts.ensure_installed = vim.tbl_filter(function(tool)
-          return tool ~= "codelldb"
-        end, opts.ensure_installed)
-      end,
+      opts = { ensure_installed = { "cpptools" } },
     },
 
     opts = function()
