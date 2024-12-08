@@ -2,6 +2,8 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/confis'keymaps.lua
 -- Add any additional keymaps here
 
+require("config.disableArrow")
+
 -- Access system clipboard
 vim.keymap.set({ "n", "v" }, "<A-y>", '"+y')
 vim.keymap.set({ "n", "v" }, "<A-d>", '"+d')
@@ -49,41 +51,3 @@ vim.keymap.set("v", "<S-Down>", ":t'><CR>gv", { silent = true })
 -- Paste text on a new line above or below the current line
 vim.keymap.set("n", "[p", "O<Esc>p", { desc = "Paste above" })
 vim.keymap.set("n", "]p", "o<Esc>p", { desc = "Paste below" })
-
--- Disable global arrow keys
-vim.keymap.set({ "n", "i", "v" }, "<Up>", "<Nop>")
-vim.keymap.set({ "n", "i", "v" }, "<Left>", "<Nop>")
-vim.keymap.set({ "n", "i", "v" }, "<Right>", "<Nop>")
-vim.keymap.set({ "n", "i", "v" }, "<Down>", "<Nop>")
--- Enable arrow keys in the buffer for the telescope.nvim plugin
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "TelescopePrompt",
-  callback = function()
-    vim.keymap.set({ "n", "i" }, "<Left>", "<Left>", { buffer = true })
-    vim.keymap.set({ "n", "i" }, "<Right>", "<Right>", { buffer = true })
-  end,
-})
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "TelescopeFindPre",
-  callback = function()
-    vim.keymap.set("i", "<Up>", "<Up>", { buffer = true })
-    vim.keymap.set("i", "<Down>", "<Down>", { buffer = true })
-  end,
-})
--- Enable arrow keys in the buffer for the neo-tree.nvim plugin
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "neo-tree",
-  callback = function()
-    vim.keymap.set("n", "<Left>", "<Left>", { buffer = true })
-    vim.keymap.set("n", "<Right>", "<Right>", { buffer = true })
-    vim.keymap.set("n", "<Up>", "<Up>", { buffer = true })
-    vim.keymap.set("n", "<Down>", "<Down>", { buffer = true })
-  end,
-})
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "neo-tree-popup",
-  callback = function()
-    vim.keymap.set({ "n", "i" }, "<Left>", "<Left>", { buffer = true })
-    vim.keymap.set({ "n", "i" }, "<Right>", "<Right>", { buffer = true })
-  end,
-})
