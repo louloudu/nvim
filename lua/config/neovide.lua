@@ -10,7 +10,7 @@ vim.keymap.set("s", "<C-S-V>", "<BS>i<C-r>+")
 vim.keymap.set("t", "<C-S-v>", '<C-\\><C-n>"+pi')
 
 -- Font
-vim.o.guifont = "SauceCodePro_NF:h11"
+vim.o.guifont = "SauceCodePro_NFM:h11"
 
 -- Transparency
 vim.g.neovide_transparency = 0.98
