@@ -22,3 +22,18 @@ if vim.fn.has("win32") == 1 then
     "-NoLogo -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.UTF8Encoding]::new();$PSDefaultParameterValues['Out-File:Encoding']='utf8';"
   vim.o.shellpipe = '2>&1 | %%{ "$_" } | Tee-Object %s; exit $LastExitCode'
 end
+
+-- Clipboard over ssh
+if (os.getenv('SSH_TTY') ~= nil) then
+    vim.g.clipboard = {
+        name = 'OSC 52',
+        copy = {
+            ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+            ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+        },
+        paste = {
+            ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+            ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+        },
+    }
+end
