@@ -2,8 +2,6 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/confis'keymaps.lua
 -- Add any additional keymaps here
 
-require("config.disableArrow")
-
 -- Access system clipboard
 vim.keymap.set({ "n", "v" }, "<A-y>", '"+y')
 vim.keymap.set({ "n", "v" }, "<A-d>", '"+d')
