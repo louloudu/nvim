@@ -30,9 +30,29 @@ return {
   },
 
   {
+    "marko-cerovac/material.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.g.material_style = "darker"
+      require("material").setup({
+        disable = {
+          background = true,
+        },
+        lualine_style = "stealth",
+      })
+      require("lualine").setup({
+        options = {
+          theme = "auto",
+        },
+      })
+    end,
+  },
+
+  {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "bluloco",
+      colorscheme = "material",
     },
   },
 }
