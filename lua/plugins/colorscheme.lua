@@ -34,7 +34,7 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      vim.g.material_style = "darker"
+      vim.g.material_style = "Deep ocean"
       require("material").setup({
         disable = {
           background = true,

@@ -13,7 +13,7 @@ vim.keymap.set("t", "<C-S-v>", '<C-\\><C-n>"+pi')
 vim.o.guifont = "SauceCodePro_NFM:h11"
 
 -- Transparency
-vim.g.neovide_transparency = 0.85
+vim.g.neovide_transparency = 0.90
 
 -- Automatic input method switching
 local function set_ime(args)
