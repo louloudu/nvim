@@ -2,11 +2,9 @@ return {
 
   {
     "uloco/bluloco.nvim",
-    lazy = false,
-    priority = 1000,
+    lazy = true,
     dependencies = { "rktjmp/lush.nvim" },
     config = function()
-      -- your optional config goes here, see below.
       require("bluloco").setup({
         style = "dark", -- "auto" | "dark" | "light"
         transparent = true,
@@ -20,8 +18,7 @@ return {
 
   {
     "Mofiqul/adwaita.nvim",
-    lazy = false,
-    priority = 1000,
+    lazy = true,
     config = function()
       vim.g.adwaita_darker = false -- for darker version
       vim.g.adwaita_disable_cursorline = true -- to disable cursorline
@@ -44,6 +41,32 @@ return {
       require("lualine").setup({
         options = {
           theme = "auto",
+        },
+      })
+    end,
+  },
+
+  {
+    "maxmx03/fluoromachine.nvim",
+    lazy = true,
+    config = function()
+      local fm = require("fluoromachine")
+      fm.setup({
+        theme = "retrowave",
+        brightness = 0.03,
+        glow = true,
+        transparent = true,
+      })
+    end,
+  },
+
+  {
+    "olimorris/onedarkpro.nvim",
+    lazy = true,
+    config = function()
+      require("onedarkpro").setup({
+        options = {
+          transparency = true,
         },
       })
     end,
