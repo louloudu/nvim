@@ -8,6 +8,7 @@ vim.o.shiftwidth = 4 -- Size of an indent
 vim.o.hidden = true -- Switching buffers doesn't require saving
 vim.o.swapfile = false -- Prohibit the generation of swapfiles
 vim.o.autoread = true -- Files are automatically re-read
+vim.o.scrolloff = 15 -- Set the number of lines to keep above and below the cursor when scrolling
 vim.o.virtualedit = "block,onemore" -- Allow the cursor to be behind the last character
 vim.o.list = false -- Disable the display of space characters
 vim.o.wrap = true -- Enable text wrapping when the line reaches the window edge
