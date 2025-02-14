@@ -28,8 +28,7 @@ return {
 
   {
     "marko-cerovac/material.nvim",
-    lazy = false,
-    priority = 1000,
+    lazy = true,
     config = function()
       vim.g.material_style = "Deep ocean"
       require("material").setup({
@@ -73,9 +72,18 @@ return {
   },
 
   {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "material",
-    },
+    "zaldih/themery.nvim",
+    lazy = false,
+    config = function()
+      require("themery").setup({
+        themes = {
+          "adwaita",
+          "bluloco",
+          "fluoromachine",
+          "material",
+          "onedark",
+        },
+      })
+    end,
   },
 }

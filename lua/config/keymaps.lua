@@ -49,3 +49,6 @@ vim.keymap.set("v", "<S-Down>", ":t'><CR>gv", { silent = true })
 -- Paste text on a new line above or below the current line
 vim.keymap.set("n", "[p", "O<Esc>p", { desc = "Paste above" })
 vim.keymap.set("n", "]p", "o<Esc>p", { desc = "Paste below" })
+
+-- Theme Switching (themery.nvim)
+vim.keymap.set("n", "<A-u>", ":Themery<CR>", { silent = true })
