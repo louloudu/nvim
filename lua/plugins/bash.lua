@@ -9,24 +9,6 @@ return {
     "williamboman/mason.nvim",
     opts = { ensure_installed = { "bash-language-server", "shellcheck" } },
   },
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        bashls = {
-          cmd = { "bash-language-server", "start" },
-          filetypes = { "sh", "bash" },
-          root_dir = require("lspconfig").util.find_git_ancestor,
-          settings = {
-            bashIde = {
-              globPattern = "*@(.sh|.inc|.bash|.command)",
-            },
-          },
-          single_file_support = true,
-        },
-      },
-    },
-  },
 
   -- Bash DAP
   {
