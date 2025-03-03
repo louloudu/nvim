@@ -15,7 +15,7 @@ vim.keymap.set("t", "<A-p>", '<C-\\><C-n>"+pi')
 vim.keymap.set("i", "jk", "<ESC>")
 
 -- Return to the "Terminal NORMAL Mode"
-vim.keymap.set("t", "<C-q>", "<C-\\><C-n>")
+vim.keymap.set("t", "<A-q>", "<C-\\><C-n>")
 
 -- Alt+Up/Down move the current line up/down
 vim.keymap.set({ "n", "v" }, "<M-Up>", ":m .-2<CR>==", { silent = true })
